@@ -9,6 +9,7 @@ from mininet.log import setLogLevel, info
 from mininet.link import TCLink, Intf
 from subprocess import call
 import csv
+import os
 
 """with open('topology_data/connection_100_v2_fix.csv', 'rb') as csvfile:
     spamreader = csv.reader(csvfile, delimiter=',')
@@ -16,8 +17,10 @@ import csv
         print ', '.join(row)
 """
 line_list = []
+network_list = []
+
 def parse_file():
-    with open('BlockChain_Project/connection_data/example.csv') as f:
+    with open('example2.csv') as f:
         for each_line in f:
             if each_line[0] == '#':
                 print(each_line)
@@ -95,6 +98,8 @@ def runNet():
         net[ input_switch ].cmd('ovs-vsctl set Bridge' + str(input_switch) + 'protocols=OpenFlow13')
 
     info( '*** Post configure switches and hosts\n')
+    # network_list = os.system( "net" )
+    # print(network_list)
 
     CLI(net)
     net.stop()
