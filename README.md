@@ -81,6 +81,7 @@ sudo apt-get install python-numpy
 #### Install cyphon
 ```
 sudo apt-get install cython
+cd /BlockChain_Project/src
 sudo python setup.py build_ext --inplace
 ```
 
